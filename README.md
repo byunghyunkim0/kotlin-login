@@ -147,6 +147,7 @@ sequenceDiagram
 
 Spring Security는 OAuth2.0과 OpenID Connect를 기본적으로 지원한다.<br>
 Spring Security는 내부적으로 다음을 자동으로 처리
+
 - Authorization Code 요청
 - Redirect URI 처리
 - Access Token 교환
@@ -179,8 +180,20 @@ spring:
             require-proof-key: true
 ```
 
-## 참고 자료
+### 참고 자료
 
 [OAuth & OIDC 관련 블로그](https://sabarada.tistory.com/264)
 
 [Spring Security PKCE 공식 문서](https://docs.spring.io/spring-authorization-server/reference/guides/how-to-pkce.html)
+
+## Social Login 구현
+
+### Domain
+
+- [ ] User: 회원 정보를 저장하는 객체
+    - [ ] id: table의 primary key 값
+    - [ ] email: 유저 email
+    - [ ] name: 유저 이름
+- [ ] token: accessToken, refreshToken을 저장하는 객체
+    - [ ] accessToken
+    - [ ] refreshToken
