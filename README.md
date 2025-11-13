@@ -197,3 +197,21 @@ spring:
 - [ ] token: accessToken, refreshToken을 저장하는 객체
     - [ ] accessToken
     - [ ] refreshToken
+
+### Repository
+
+- [ ] UserRepository: JPA를 활용해서 User 저장/조회
+- [ ] RefreshTokenRepository: refreshToken 저장/조회/삭제 (accessToken은 DB에 저장x)
+
+### Service
+
+- [ ] UserService: User 생성/조회/수정 로직 처리
+- [ ] TokenService: JWT Token 생성/검증 로직 처리
+
+### Controller
+
+- [ ] AuthController: Authorization code를 받고 인증 처리
+
+> PKCE 처리를 위해 Authorization code를 직접 받고 처리해야함<br>
+> 모바일 앱 + 백엔드 분리 구조라면 Authorization code를 직접 받고 Controller에서 교환해야함<br>
+> Web으로 진행하면 Security가 대신 PKCE를 처리해줌
