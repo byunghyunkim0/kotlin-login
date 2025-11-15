@@ -190,13 +190,14 @@ spring:
 
 ### Domain
 
-- [ ] User: 회원 정보를 저장하는 객체
-    - [ ] id: table의 primary key 값
-    - [ ] email: 유저 email
-    - [ ] name: 유저 이름
+- [x] User: 회원 정보를 저장하는 객체
+    - [x] id: table의 primary key 값
+    - [x] email: 유저 email
+    - [x] name: 유저 이름
 - [ ] token: accessToken, refreshToken을 저장하는 객체
     - [ ] accessToken
     - [ ] refreshToken
+- [ ] RefreshToken: redis에 refreshToken을 저장하기 위한 엔티티
 
 ### Repository
 
