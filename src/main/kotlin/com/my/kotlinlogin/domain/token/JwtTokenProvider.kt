@@ -34,4 +34,12 @@ class JwtTokenProvider {
             .signWith(secretKey)
             .compact()
     }
+
+    fun getUserIdFromToken(token: String): Long {
+        return Jwts.parserBuilder()
+            .setSigningKey(secretKey)
+            .build()
+            .parseClaimsJws(token)
+            .body.subject.toLong()
+    }
 }
