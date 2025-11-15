@@ -1,4 +1,4 @@
-package com.my.kotlinlogin.domain
+package com.my.kotlinlogin.domain.user
 
 import jakarta.persistence.*
 
