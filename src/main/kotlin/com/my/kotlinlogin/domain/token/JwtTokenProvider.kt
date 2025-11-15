@@ -22,4 +22,16 @@ class JwtTokenProvider {
             .signWith(secretKey)
             .compact()
     }
+
+    fun generateRefreshToken(userId: Long): String {
+        val now = Date()
+        val expireDate = Date(now.time + 1000 * 60 * 60 * 24 * 14)
+
+        return Jwts.builder()
+            .setSubject(userId.toString())
+            .setIssuedAt(now)
+            .setExpiration(expireDate)
+            .signWith(secretKey)
+            .compact()
+    }
 }
