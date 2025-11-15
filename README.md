@@ -206,6 +206,7 @@ spring:
 ### Service
 
 - [ ] UserService: User 생성/조회/수정 로직 처리
+    - [ ] registerUser(): user의 정보를 저장하는 메서드
 - [ ] TokenService: JWT Token 생성/검증 로직 처리
 
 ### Controller
