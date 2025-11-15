@@ -18,4 +18,7 @@ class User(
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     val provider: AuthProvider,
+
+    @Column(nullable = false)
+    val providerId: String,
 )
