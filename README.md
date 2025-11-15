@@ -197,7 +197,8 @@ spring:
 - [ ] token: accessToken, refreshToken을 저장하는 객체
     - [ ] accessToken
     - [ ] refreshToken
-- [ ] RefreshToken: redis에 refreshToken을 저장하기 위한 엔티티
+- [x] RefreshToken: redis에 refreshToken을 저장하기 위한 엔티티
+- [ ] JwtTokenProvider: JwtToken 생성/조회
 
 ### Repository
 
