@@ -198,18 +198,25 @@ spring:
     - [ ] accessToken
     - [ ] refreshToken
 - [x] RefreshToken: redis에 refreshToken을 저장하기 위한 엔티티
-- [ ] JwtTokenProvider: JwtToken 생성/조회
+- [x] JwtTokenProvider: JwtToken 생성/조회
 
 ### Repository
 
-- [ ] UserRepository: JPA를 활용해서 User 저장/조회
-- [ ] RefreshTokenRepository: refreshToken 저장/조회/삭제 (accessToken은 DB에 저장x)
+- [x] UserRepository: JPA를 활용해서 User 저장/조회
+- [x] RefreshTokenRepository: refreshToken 저장/조회/삭제 (accessToken은 DB에 저장x)
 
 ### Service
 
 - [ ] UserService: User 생성/조회/수정 로직 처리
     - [ ] registerUser(): user의 정보를 저장하는 메서드
 - [ ] TokenService: JWT Token 생성/검증 로직 처리
+
+- [ ] OAuthUserInfo: 유저 정보 인터페이스
+- [ ] GoogleOAuthUserInfo: 구글로 부터 구글 유저 데이터를 처리
+- [ ] OAuthAttributes: 각 소셜 로그인 인증서버로 부터 OAuthUserInfo를 만듬
+    - Google, Kakao, Naver ...
+- [ ] CustomUserDetails: Spring Security에서 유저의 정보를 가져오고 처리하기 위한 객체
+- [ ] CustomOAuth2UserService: Spring Security가 Authorization Code로 유저 정보 가져올 때 동작하는 서비스
 
 ### Controller
 
