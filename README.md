@@ -216,7 +216,7 @@ spring:
 - [x] GoogleOAuthUserInfo: 구글로 부터 구글 유저 데이터를 처리
 - [x] OAuthAttributes: 각 소셜 로그인 인증서버로 부터 OAuthUserInfo를 만듬
     - Google, Kakao, Naver ...
-- [ ] CustomUserDetails: Spring Security에서 유저의 정보를 가져오고 처리하기 위한 객체
+- [x] OAuthUserDetails: Spring Security에서 유저의 정보를 가져오고 처리하기 위한 객체
 - [ ] CustomOAuth2UserService: Spring Security가 Authorization Code로 유저 정보 가져올 때 동작하는 서비스
 
 ### Controller
