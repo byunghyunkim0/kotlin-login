@@ -21,4 +21,8 @@ class User(
 
     @Column(nullable = false)
     val providerId: String,
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    val role: Role
 )
