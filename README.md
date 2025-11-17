@@ -194,6 +194,7 @@ spring:
     - [x] id: table의 primary key 값
     - [x] email: 유저 email
     - [x] name: 유저 이름
+- [ ] Role: 회원의 권한을 설정하는 enum
 - [ ] token: accessToken, refreshToken을 저장하는 객체
     - [ ] accessToken
     - [ ] refreshToken
