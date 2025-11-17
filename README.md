@@ -211,7 +211,7 @@ spring:
     - [ ] registerUser(): user의 정보를 저장하는 메서드
 - [ ] TokenService: JWT Token 생성/검증 로직 처리
 
-- [ ] OAuthUserInfo: 유저 정보 인터페이스
+- [x] OAuthUserInfo: 유저 정보 인터페이스
 - [ ] GoogleOAuthUserInfo: 구글로 부터 구글 유저 데이터를 처리
 - [ ] OAuthAttributes: 각 소셜 로그인 인증서버로 부터 OAuthUserInfo를 만듬
     - Google, Kakao, Naver ...
