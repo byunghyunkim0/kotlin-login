@@ -7,9 +7,8 @@ object OAuthAttributes {
     fun extract(provider: AuthProvider, attributes: Map<String, Any>): OAuthUserInfo {
         return when (provider) {
             AuthProvider.GOOGLE -> GoogleOAuthUserInfo(attributes)
-            // todo Kakao Naver login
-            AuthProvider.KAKAO -> GoogleOAuthUserInfo(attributes)
-            AuthProvider.NAVER -> GoogleOAuthUserInfo(attributes)
+            AuthProvider.KAKAO -> TODO("KAKAO 로그인")
+            AuthProvider.NAVER -> TODO("NAVER 로그인")
         }
     }
 }
