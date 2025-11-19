@@ -217,7 +217,7 @@ spring:
 - [x] OAuthAttributes: 각 소셜 로그인 인증서버로 부터 OAuthUserInfo를 만듬
     - Google, Kakao, Naver ...
 - [x] OAuthUserDetails: Spring Security에서 유저의 정보를 가져오고 처리하기 위한 객체
-- [ ] CustomOAuth2UserService: Spring Security가 Authorization Code로 유저 정보 가져올 때 동작하는 서비스
+- [x] CustomOAuth2UserService: Spring Security가 Authorization Code로 유저 정보 가져올 때 동작하는 서비스
 
 ### Controller
 
