@@ -39,6 +39,13 @@ dependencies {
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
 
+    implementation("com.google.api-client:google-api-client:1.32.1")
+// Use the latest version
+    implementation("com.google.http-client:google-http-client-jackson2:1.32.1")
+// Use the latest version
+    implementation("com.google.oauth-client:google-oauth-client:1.32.1")
+// Use the latest version
+
     // test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
