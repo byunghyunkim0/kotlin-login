@@ -231,7 +231,8 @@ spring:
 
 > 웹과 모바일의 인증과정이 비슷하다고 생각했습니다.<br>
 > 그래서 Authorization code를 받고 백엔드와 교환하면서 인증을 진행할 수 있다고 생각했지만 그런 방식으로 구현하지 못했습니다.<br>
-> 그래서 Google에서 제공하는 AuthorizationClient API를 사용해서 안드로이드에서 구글로부터 TokenId를 받고 tokenId를 백엔드 서버에 보내 구글로 부터 만들어진 토큰인지 검증하고, accessToken을 안드로이드에게 보내는 방식으로 구현했습니다.
+> 그래서 Google에서 제공하는 AuthorizationClient API를 사용해서 안드로이드에서 구글로부터 TokenId를 받고 tokenId를 백엔드 서버에 보내 구글로 부터 만들어진 토큰인지 검증하고,
+> accessToken을 안드로이드에게 보내는 방식으로 구현했습니다.
 
 #### 참고 자료
 
@@ -240,3 +241,12 @@ spring:
 [서버에서 Google IDToken 처리](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token?hl=ko)
 
 [idToken 참고 블로그](https://minsu20.tistory.com/25)
+
+### 트러블 슈팅
+
+- `io.jsonwebtoken.security.InvalidKeyException: RSA signing keys must be PrivateKey instances.] with root cause`
+    - JWT를 생성할 때 알고리즘을 `HS256`이 아닌 `RS256`로 진행해서 생긴 오류
+- `org.springframework.orm.jpa.JpaSystemException: No default constructor for entity 'com.my.kotlinlogin.domain.user.User'] with root cause`
+    - JPA 엔티티가 기본 생성자를 가지지 않아서 생긴 오류
+    - 한 계정으로 여러번의 로그인을 진행하니 생긴 문제
+    - 기본생성자를 만들고 Entity를 Open으로 변경해서 문제 해결
