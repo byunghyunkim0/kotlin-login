@@ -3,13 +3,19 @@ package com.my.kotlinlogin.domain.token
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import io.jsonwebtoken.security.Keys
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import java.util.Date
 
 @Component
-class JwtTokenProvider {
+class JwtTokenProvider(
+    @Value("\${spring.jwt.secret}")
+    private val secret: String
+) {
 
-    private val secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256)
+    private val key by lazy {
+        Keys.hmacShaKeyFor(secret.toByteArray())
+    }
 
     fun generateAccessToken(userId: Long): String {
         val now = Date()
@@ -19,7 +25,7 @@ class JwtTokenProvider {
             .setSubject(userId.toString())
             .setIssuedAt(now)
             .setExpiration(expireDate)
-            .signWith(secretKey)
+            .signWith(key, SignatureAlgorithm.HS256)
             .compact()
     }
 
@@ -31,13 +37,13 @@ class JwtTokenProvider {
             .setSubject(userId.toString())
             .setIssuedAt(now)
             .setExpiration(expireDate)
-            .signWith(secretKey)
+            .signWith(key, SignatureAlgorithm.HS256)
             .compact()
     }
 
     fun getUserIdFromToken(token: String): Long {
         return Jwts.parserBuilder()
-            .setSigningKey(secretKey)
+            .setSigningKey(key)
             .build()
             .parseClaimsJws(token)
             .body.subject.toLong()
