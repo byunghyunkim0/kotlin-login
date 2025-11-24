@@ -1,7 +1,6 @@
 package com.my.kotlinlogin.config
 
 import com.my.kotlinlogin.domain.token.JwtTokenProvider
-import com.my.kotlinlogin.service.oauth.CustomOAuth2UserService
 import org.springframework.boot.autoconfigure.http.client.HttpClientProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -12,7 +11,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 class SecurityConfig(
-    private val oAuth2UserService: CustomOAuth2UserService,
     private val jwtTokenProvider: JwtTokenProvider
 ) {
 
@@ -24,10 +22,6 @@ class SecurityConfig(
             .authorizeHttpRequests {
                 it.requestMatchers("api/auth/**", "/oauth2/**").permitAll()
                     .anyRequest().authenticated()
-            }
-            .oauth2Login { oauth ->
-                oauth.userInfoEndpoint { it.userService(oAuth2UserService) }
-                oauth.defaultSuccessUrl("/auth/login-success")
             }
             .addFilterBefore(
                 JwtAuthenticationFilter(jwtTokenProvider),
