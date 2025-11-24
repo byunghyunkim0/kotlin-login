@@ -226,3 +226,17 @@ spring:
 > PKCE 처리를 위해 Authorization code를 직접 받고 처리해야함<br>
 > 모바일 앱 + 백엔드 분리 구조라면 Authorization code를 직접 받고 Controller에서 교환해야함<br>
 > Web으로 진행하면 Security가 대신 PKCE를 처리해줌
+
+### 수정 사항
+
+> 웹과 모바일의 인증과정이 비슷하다고 생각했습니다.<br>
+> 그래서 Authorization code를 받고 백엔드와 교환하면서 인증을 진행할 수 있다고 생각했지만 그런 방식으로 구현하지 못했습니다.<br>
+> 그래서 Google에서 제공하는 AuthorizationClient API를 사용해서 안드로이드에서 구글로부터 TokenId를 받고 tokenId를 백엔드 서버에 보내 구글로 부터 만들어진 토큰인지 검증하고, accessToken을 안드로이드에게 보내는 방식으로 구현했습니다.
+
+#### 참고 자료
+
+[AuthorizationClient API로 안드로이드 구현](https://developer.android.com/identity/sign-in/credential-manager-siwg?hl=ko)
+
+[서버에서 Google IDToken 처리](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token?hl=ko)
+
+[idToken 참고 블로그](https://minsu20.tistory.com/25)
