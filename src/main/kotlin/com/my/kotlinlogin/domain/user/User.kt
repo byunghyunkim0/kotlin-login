@@ -4,7 +4,7 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "USERS")
-class User(
+open class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
@@ -24,5 +24,18 @@ class User(
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    val role: Role
-)
+    val role: Role,
+
+    @Column(nullable = true)
+    val picture: String?,
+) {
+    protected constructor() : this(
+        id = 0L,
+        email = "",
+        name = "",
+        provider = AuthProvider.GOOGLE,
+        providerId = "",
+        role = Role.USER,
+        picture = null,
+    )
+}
